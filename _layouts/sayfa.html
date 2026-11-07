@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} – {{ site.title }}</title>
+<meta name="description" content="{{ page.aciklama | default: 'Meerkat Quest – Mirket Macerası: Kanyon Koşusu' }}">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/stil.css">
+</head>
+<body>
+<header class="ust">
+  <a class="marka" href="./"><img src="assets/ikon.png" alt="" width="44" height="44"><span>Meerkat Quest</span></a>
+  <nav>
+    {% if page.lang == 'en' %}
+    <a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="gizlilik.html" lang="tr">Türkçe</a>
+    {% else %}
+    <a href="gizlilik.html">Gizlilik</a><a href="destek.html">Destek</a><a href="privacy.html" lang="en">English</a>
+    {% endif %}
+  </nav>
+</header>
+<main>
+{{ content }}
+</main>
+<footer class="alt">
+  <p>© 2026 {{ site.gelistirici }} · <a href="mailto:{{ site.eposta }}">{{ site.eposta }}</a></p>
+</footer>
+</body>
+</html>

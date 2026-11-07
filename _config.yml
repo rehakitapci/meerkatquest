@@ -1,0 +1,10 @@
+# MEERKAT QUEST – web sayfaları (GitHub Pages / Jekyll). YALNIZ BU DOSYAYI düzenlemeniz yeterli:
+#   eposta     : oyuncuların yazacağı, herkese açık iletişim adresi (yeni açacağınız adres)
+#   gelistirici: mağazada görünen geliştirici adı (kişisel hesapta adınız soyadınız)
+#   guncelleme : gizlilik politikasının son güncelleme tarihi (metni değiştirdiğinizde güncelleyin)
+title: "Meerkat Quest"
+eposta: "YENI-EPOSTA@ornek.com"
+gelistirici: "Reha Kitapçı"
+guncelleme: "06.11.2026"
+lang: tr
+markdown: kramdown
