@@ -3,8 +3,8 @@
 #   gelistirici: mağazada görünen geliştirici adı (kişisel hesapta adınız soyadınız)
 #   guncelleme : gizlilik politikasının son güncelleme tarihi (metni değiştirdiğinizde güncelleyin)
 title: "Meerkat Quest"
-eposta: "YENI-EPOSTA@ornek.com"
-gelistirici: "Reha Kitapçı"
+eposta: "rehakitapci@gmail.com"
+gelistirici: "RehaK"
 guncelleme: "06.11.2026"
 lang: tr
 markdown: kramdown
