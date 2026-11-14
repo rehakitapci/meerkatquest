@@ -8,6 +8,14 @@
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/stil.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Meerkat Quest">
+<meta property="og:title" content="{{ page.og_baslik | default: page.title }}">
+<meta property="og:description" content="{{ page.aciklama | default: 'Meerkat Quest – Mirket Macerası: Kanyon Koşusu' }}">
+<meta property="og:image" content="{{ site.url | default: 'https://rehakitapci.github.io' }}{{ site.baseurl | default: '/meerkatquest' }}/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <header class="ust">

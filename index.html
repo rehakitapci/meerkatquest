@@ -2,21 +2,68 @@
 layout: sayfa
 title: "Mirket Macerası: Kanyon Koşusu"
 lang: tr
-aciklama: "Meerkat Quest – Mirket Macerası: Kanyon Koşusu. Kanyonda sonsuz koşu oyunu."
+aciklama: "Meerkat Quest – Mirket Macerası: Kanyon Koşusu. Kanyonda sonsuz koşu oyunu. Ücretsiz: App Store ve Google Play."
+og_baslik: "Meerkat Quest – Mirket Macerası: Kanyon Koşusu"
 ---
+{% comment %}
+  v23 (14.11.2026): oyundaki PAYLAŞ kartının karekodu ve mesajdaki adres bu sayfaya gelir -> iki dilli (telefonun diline göre
+  Türkçe / İngilizce; altta elle değiştirilebilir) ve İNDİR bölümü. Mağaza adresleri _config.yml'de (appstore, googleplay);
+  boşken "yakında" yazar. Telefon Android'se Google Play, değilse App Store önce gösterilir.
+{% endcomment %}
 <section class="kahraman">
-  <img src="assets/ikon.png" alt="Mirket Macerası ikonu">
-  <h1>Mirket Macerası: Kanyon Koşusu</h1>
-  <p class="not">Meerkat Quest</p>
-  <p>Cesur mirketimiz kızıl kanyonun kenarındaki taş köprülerde koşuyor. Kaydır, zıpla, kay, dön; kartaldan, yılandan
-     ve çitadan kaç, vagona bin, halatla uçurumu geç!</p>
-  <p class="not">Çok yakında App Store ve Google Play'de.</p>
+  <img src="assets/ikon.png" alt="Meerkat Quest">
+  <h1 data-dil="tr">Mirket Macerası: Kanyon Koşusu</h1>
+  <h1 data-dil="en" lang="en" hidden>Meerkat Quest</h1>
+  <p class="not" data-dil="tr">Meerkat Quest</p>
+  <p class="not" data-dil="en" lang="en" hidden>Canyon Run</p>
+  <p data-dil="tr">Cesur mirketimiz kızıl kanyonun kenarındaki taş köprülerde koşuyor. Kaydır, zıpla, kay, dön; kartaldan,
+     yılandan ve çitadan kaç, vagona bin, halatla uçurumu geç!</p>
+  <p data-dil="en" lang="en" hidden>Our brave meerkat races across stone bridges on the edge of a red canyon. Swipe, jump,
+     slide and turn; escape the eagle, the snake and the cheetah, ride the cart and swing across the cliffs!</p>
+</section>
+<section class="indir" id="indir">
+  <h2 data-dil="tr">Ücretsiz indir</h2>
+  <h2 data-dil="en" lang="en" hidden>Download for free</h2>
+  <div class="magazalar">
+    {% if site.appstore and site.appstore != "" %}
+    <a class="magaza as" href="{{ site.appstore }}"><span class="ust-yazi" data-dil="tr">İndir:</span><span class="ust-yazi" data-dil="en" lang="en" hidden>Download on the</span>App Store</a>
+    {% else %}
+    <span class="magaza as yakinda"><span class="ust-yazi" data-dil="tr">Yakında</span><span class="ust-yazi" data-dil="en" lang="en" hidden>Coming soon</span>App Store</span>
+    {% endif %}
+    {% if site.googleplay and site.googleplay != "" %}
+    <a class="magaza gp" href="{{ site.googleplay }}"><span class="ust-yazi" data-dil="tr">İndir:</span><span class="ust-yazi" data-dil="en" lang="en" hidden>Get it on</span>Google Play</a>
+    {% else %}
+    <span class="magaza gp yakinda"><span class="ust-yazi" data-dil="tr">Yakında</span><span class="ust-yazi" data-dil="en" lang="en" hidden>Coming soon</span>Google Play</span>
+    {% endif %}
+  </div>
+  <p class="not" data-dil="tr">Ücretsiz oyun; isteğe bağlı uygulama içi satın almalar ve isteğe bağlı ödüllü reklamlar içerir.</p>
+  <p class="not" data-dil="en" lang="en" hidden>Free to play; contains optional in-app purchases and optional rewarded ads.</p>
 </section>
 <section>
-  <h2>Bağlantılar</h2>
+  <h2 data-dil="tr">Bağlantılar</h2>
+  <h2 data-dil="en" lang="en" hidden>Links</h2>
   <ul>
     <li><a href="gizlilik.html">Gizlilik Politikası</a> · <a href="privacy.html" lang="en">Privacy Policy</a></li>
     <li><a href="destek.html">Destek ve sık sorulan sorular</a> · <a href="support.html" lang="en">Support</a></li>
-    <li>İletişim: <a href="mailto:{{ site.eposta }}">{{ site.eposta }}</a></li>
+    <li><span data-dil="tr">İletişim:</span><span data-dil="en" lang="en" hidden>Contact:</span>
+        <a href="mailto:{{ site.eposta }}">{{ site.eposta }}</a></li>
   </ul>
+  <p class="not dil-sec"><a href="#tr" data-sec="tr">Türkçe</a> · <a href="#en" data-sec="en" lang="en">English</a></p>
 </section>
+<script>
+(function () {
+  function uygula(dil) {
+    var en = dil === 'en';
+    document.documentElement.lang = en ? 'en' : 'tr';
+    document.querySelectorAll('[data-dil]').forEach(function (e) { e.hidden = (e.getAttribute('data-dil') === 'en') !== en; });
+    document.title = en ? 'Meerkat Quest' : 'Mirket Macerası: Kanyon Koşusu – Meerkat Quest';
+  }
+  var h = location.hash.replace('#', '');
+  var dil = h === 'en' || h === 'tr' ? h : (/^tr\b/i.test((navigator.languages && navigator.languages[0]) || navigator.language || 'tr') ? 'tr' : 'en');
+  uygula(dil);
+  document.querySelectorAll('[data-sec]').forEach(function (a) {
+    a.addEventListener('click', function (ev) { ev.preventDefault(); var d = a.getAttribute('data-sec'); history.replaceState(null, '', '#' + d); uygula(d); });
+  });
+  if (/android/i.test(navigator.userAgent)) document.querySelector('.magazalar').classList.add('android');
+})();
+</script>

@@ -17,3 +17,13 @@ ul { padding-left: 22px; }
 .kahraman img { width: 128px; height: 128px; border-radius: 28px; box-shadow: 0 6px 18px rgba(74,44,20,.25); }
 .alt { text-align: center; color: #6d5537; font-size: 14px; padding: 16px; }
 @media (max-width: 480px) { body { font-size: 16px; } h1 { font-size: 24px; } }
+[hidden] { display: none !important; }
+/* v23: indirme bölümü (paylaşım kartından gelenler için) */
+.indir { text-align: center; }
+.magazalar { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 12px 0 6px; }
+.magazalar.android .gp { order: -1; }
+.magaza { display: inline-flex; flex-direction: column; align-items: flex-start; min-width: 190px; padding: 10px 20px; border-radius: 12px;
+          background: #111; color: #fff; font-weight: 800; font-size: 22px; line-height: 1.15; text-decoration: none; }
+.magaza .ust-yazi { font-size: 12px; font-weight: 600; letter-spacing: .02em; }
+.magaza.yakinda { background: #8b7a62; }
+.dil-sec { text-align: center; margin-top: 14px; }
